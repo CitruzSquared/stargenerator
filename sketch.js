@@ -304,10 +304,17 @@ function make_table_div() {
 function make_full_table() {
     var starlist = document.getElementById("starlist");
     starlist.innerHTML = '<h2> Full Star List </h2> <button type="button" style="margin: 10px; padding: 10px" , onclick="make_table_div()">Hide</button>';
+    var file_content = "["
     var table = "<table> <tr> <th> ID </th> <th> Right Ascension (deg) </th> <th> Declension (deg) </th> <th> App. Magnitude </th> </tr>";
     for (let i = 0; i < num_stars; i++) {
         table += `<tr> <th> #${i + 1} </th> <td> ${RA_list[i] * 360} </td> <td> ${DEC_list[i] * 90} </td> <td> ${MAG_list[i]} </td> </tr>`
+        file_content += `[${RA_list[i] * 360}, ${DEC_list[i] * 90}, ${MAG_list[i]}], \n`;
     }
+    file_content = file_content.slice(0, -3) + "]";
+    var blob = new Blob([file_content], { type: 'text/plain' });
     table += '</table> <button type="button" style="margin: 10px; padding: 10px" , onclick="make_table_div()">Hide</button>'
+    starlist.innerHTML += '<a download="starlist.txt" href="#" id="link">Download</a>';
+    var link = document.getElementById("link");
+    link.href = URL.createObjectURL(blob);
     starlist.innerHTML += table;
 }
