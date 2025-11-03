@@ -1,5 +1,5 @@
 function setup() {
-  createCanvas(1500, 750);
+  createCanvas(WindowWidth, WindowWidth/2);
 }
 
 var bias = 0;
