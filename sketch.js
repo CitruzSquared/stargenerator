@@ -102,6 +102,17 @@ function draw() {
     let stats_array = create_stats_array(MAG_list);
 
     var stats_div = document.getElementById("stats");
+    if (bias > 0) {
+        bias /= 1.25;
+    } else {
+        bias /= 2;
+    }
+
+    if (galactic_bias >= 0.99999) {
+        galactic_bias = 1;
+    } else if (galactic_bias <= 0.000001) {
+        galactic_bias = 0;
+    }
     stats_div.innerHTML = "";
     stats_div.innerHTML += ` 
     <table> 
