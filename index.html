@@ -124,11 +124,24 @@
             <script src="sketch.js"></script>
         </main>
     </div>
-    <h2> Statistics </h2>
-    <div id="stats" style="display: flex;">
-    </div>
-    <div id="starlist">
-    </div>
+    <h2> Information </h2>
+    <h3> General Information</h3>
+    <p> In the star map (which is in
+        equatorial coordinates), north is on the top and east is on the left as according to astronomical
+        convention. The straight line in the middle of the map is the celestial equator and the curved line is the
+        ecliptic. </p>
+    <h3> Generator Information</h3>
+    <p> The generator only generates naked-eye (i.e. apparent magnitude < 6.5) stars. A higher (more positive) "bias"
+            will make the stars brighter. The longitude, latitude, and brightness seeds control the stars' ecliptic
+            longitude, ecliptic latitude, and apparent magnitude respectively. Set all 3 seeds to obtain perfect copies
+            of a map. The "precession" value can be adjusted to shift the stars around (more specifically, uniformly
+            increase their ecliptic longitude). </p>
+
+            <h2> Statistics </h2>
+            <div id="stats" style="display: flex;">
+            </div>
+            <div id="starlist">
+            </div>
 </body>
 
 </html>
