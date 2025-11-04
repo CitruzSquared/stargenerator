@@ -282,31 +282,6 @@ function make_random_lat_long(seed1, seed2, number) {
     return [longs, lats];
 }
 
-function make_random_long(seed, number) {
-    let result = [];
-    let iter = 0;
-    let count = 0;
-    let s = seed;
-    for (let i = -100; i < 0; i++) {
-        let random_number = prng(s);
-        s = random_number;
-    }
-    while (iter < number * 500) {
-        iter++;
-        let random_number = prng(s);
-        let x = random_number / Math.pow(2, 32);
-        if (x < Math.cos(GAL_LAT_list[count])) {
-            result.push((x / Math.cos(GAL_LAT_list[count])) * Math.PI * 2);
-            count++;
-        }
-        if (count == number) {
-            break;
-        }
-        s = random_number;
-    }
-    return result;
-}
-
 function convert_random_to_mag(array) {
     let result = [];
     let a = 9574.12322978;
