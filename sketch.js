@@ -371,11 +371,15 @@ function initialize() {
     seeds = [long_seed, lat_seed, mag_seed];
 
     bias = document.getElementById("bias_value").value;
-    if (bias < -1) {
-        bias = -1;
+    if (bias < 0) {
+        bias *= 2;
+    } else {
+        bias *= 1.25;
     }
-    if (bias > 1) {
-        bias = 1;
+    if (bias > 1.25) {
+        bias = 1.25;
+    } else if (bias < -2) {
+        bias = -2;
     }
 
     galactic_bias = document.getElementById("galbias_value").value;
