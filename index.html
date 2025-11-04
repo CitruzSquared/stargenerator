@@ -35,7 +35,7 @@
             padding-left: 10px;
             padding-right: 10px;
             color: #ffffff;
-            width: 240px;
+            width: 200px;
             background-color: rgba(0, 0, 0, 0);
         }
 
@@ -80,13 +80,13 @@
                     </td>
                 </tr>
                 <tr>
-                    <th> Longitude Seed </th>
+                    <th> Location Seed 1 </th>
                     <td class="inputbox"> <input type="number" id="long_seed" ,
                             placeholder="Leave blank for random seed">
                     </td>
                 </tr>
                 <tr>
-                    <th> Latitude Seed </th>
+                    <th> Location Seed 2 </th>
                     <td class="inputbox"> <input type="number" id="lat_seed" ,
                             placeholder="Leave blank for random seed">
                     </td>
@@ -98,20 +98,38 @@
                     </td>
                 </tr>
                 <tr>
-                    <th> Bias (from -1 to 1) </th>
+                    <th> Bias (-1 to 1) </th>
                     <td class="inputbox"> <input type="number" id="bias_value" ,
-                            placeholder="Larger value means brighter stars"> </td>
+                            placeholder="Larger value means brighter stars" , value="0"> </td>
                 </tr>
                 <tr>
                     <th> Precession </th>
-                    <td class="inputbox"> <input type="number" id="precession_value" ,
-                            placeholder="Measured in degrees">
+                    <td class="inputbox"> <input type="number" id="precession_value" , placeholder="Measured in degrees"
+                            , value="0">
                     </td>
                 </tr>
                 <tr>
                     <th> Axial Tilt </th>
                     <td class="inputbox"> <input type="number" id="tilt_value" , placeholder="Measured in degrees" ,
                             value="23.44">
+                    </td>
+                </tr>
+                <tr>
+                    <th> NGP Ecl. Long. </th>
+                    <td class="inputbox"> <input type="number" id="LNGP_value" , placeholder="Measured in degrees" ,
+                            value="160">
+                    </td>
+                </tr>
+                <tr>
+                    <th> NGP Ecl. Lat. </th>
+                    <td class="inputbox"> <input type="number" id="BNGP_value" , placeholder="Measured in degrees" ,
+                            value="24">
+                    </td>
+                </tr>
+                <tr>
+                    <th> Galactic Bias (0 to 1) </th>
+                    <td class="inputbox"> <input type="number" id="galbias_value" ,
+                            placeholder="Larger value means sharper galaxy" , value="0.4">
                     </td>
                 </tr>
             </table>
@@ -124,18 +142,28 @@
             <script src="sketch.js"></script>
         </main>
     </div>
-    <h2> Information </h2>
+    <h2> Information and Help </h2>
     <h3> General Information</h3>
     <p> In the star map (which is in
         equatorial coordinates), north is on the top and east is on the left as according to astronomical
         convention. The straight line in the middle of the map is the celestial equator and the curved line is the
         ecliptic. The size of the dots on the map correspond to apparent magnitude. </p>
     <h3> Generator Information</h3>
-    <p> The generator only generates naked-eye (i.e. apparent magnitude < 6.5) stars. A higher (more positive) "bias"
-            will make the stars brighter. The longitude, latitude, and brightness seeds control the stars' ecliptic
-            longitude, ecliptic latitude, and apparent magnitude respectively. Set all 3 seeds to obtain perfect copies
-            of a map. The "precession" value can be adjusted to shift the stars around (more specifically, uniformly
-            increase their ecliptic longitude). </p>
+    <p> The generator only generates naked-eye (i.e. apparent magnitude < 6.5) stars. </p>
+            <ul>
+                <li> <b>Number of Stars</b> - Number of stars that will be generated. </li>
+                <li> <b>Location Seed 1 and 2</b> - Seeds that control the location of the stars. </li>
+                <li> <b>Brightness Seed</b> - Seed that controls the apparent magnitude of the stars. </li>
+                <li> <b>Bias</b> - Adjusts the brightness of the stars, larger (more positive) value makes stars
+                    brighter. </li>
+                <li> <b>Precession</b> - Increases the ecliptic longitude for every star. Makes stars adjust position.
+                </li>
+                <li> <b>Axial Tilt</b> - Axial tilt of the planet. Adjusts the ecliptic. </li>
+                <li> <b>NGP Ecl. Long.</b> - Ecliptic longitude of the North Galactic Pole (NGP). </li>
+                <li> <b>NGP Ecl. Lat.</b> - Ecliptic latitude of the North Galactic Pole (NGP). </li>
+                <li> <b>Galactic Bias</b> - Adjusts the sharpness of the galaxy, with 0 being completely uniform star
+                    distribution. </li>
+            </ul>
 
             <h2> Statistics </h2>
             <div id="stats" style="display: flex;">
