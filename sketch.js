@@ -108,9 +108,9 @@ function draw() {
         bias /= 2;
     }
 
-    if (galactic_bias >= 0.99999) {
+    if (galactic_bias >= 0.999999) {
         galactic_bias = 1;
-    } else if (galactic_bias <= 0.000001) {
+    } else if (galactic_bias <= 0.00000001) {
         galactic_bias = 0;
     }
     stats_div.innerHTML = "";
@@ -394,11 +394,11 @@ function initialize() {
     }
 
     galactic_bias = document.getElementById("galbias_value").value;
-    if (galactic_bias <= 0.000001) {
-        galactic_bias = 0.000001;
+    if (galactic_bias <= 0.00000001) {
+        galactic_bias = 0.00000001;
     }
-    if (galactic_bias >= 0.99999) {
-        galactic_bias = 0.99999;
+    if (galactic_bias >= 0.999999) {
+        galactic_bias = 0.999999;
     }
 
     precession = document.getElementById("precession_value").value / 360;
