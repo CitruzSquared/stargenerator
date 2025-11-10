@@ -413,3 +413,7 @@ function make_full_table() {
     listlink.href = URL.createObjectURL(listblob);
     starlist.innerHTML += table;
 }
+
+function download() {
+    saveCanvas(`${seeds[0]}_${seeds[1]}_${seeds[2]}`, "png");
+}
